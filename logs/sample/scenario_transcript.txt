@@ -1,0 +1,116 @@
+======================================================================
+LedgerPilot — sandbox execution evidence
+All data is simulated. No real accounts or funds are touched.
+======================================================================
+
+[SME003] USER: How is PixelForge doing financially?
+[SME003] LEDGERPILOT (offline):
+**Financial health — PixelForge Studios: 89.5/100 (Strong)**
+Net margin 33.0%, expense ratio 67.0%, debt-to-annual-revenue 0.0.
+Revenue trend over the window: +5.1%.
+Top cost drivers: Staff Salaries (52.2%), Software & Tools (14.5%), Rent / Co-working (12.1%).
+_Score components_ — margin 100, liquidity 87.8, leverage 100, growth 62.6 (weighted).
+
+**Financing options — PixelForge Studios**
+
+1. **Invoice Financing / Bill Discounting** — fit 80/100, APR 14–24%, est. annual interest ~₹212,800
+   Why: large open receivables (818,979) suit invoice financing.
+   Needs: Verifiable open invoices from creditworthy clients.
+
+2. **Revenue-Based Financing** — fit 75/100, APR 16–28%, est. annual interest ~₹246,400
+   Why: healthy margin (32%) suits revenue-share repayment.
+   Needs: Strong and growing monthly revenue, healthy margins.
+
+3. **Government MSME Scheme Loan (e.g. CGTMSE-backed)** — fit 70/100, APR 9–14%, est. annual interest ~₹128,800
+   Why: GST-registered MSME — eligible for low-cost govt-backed credit.
+   Needs: Valid MSME/GST registration and eligible sector.
+
+_These are explainable suggestions, not a credit offer. Final terms depend on the lender's assessment._
+
+[SME002] USER: Will ThreadCraft run short of cash? Show me the risks.
+[SME002] LEDGERPILOT (offline):
+**Cash flow — ThreadCraft Apparel**
+Average monthly net: ₹126,313; cash on hand ₹240,000; ~₹1,611,166 projected in 30 days.
+
+_Alerts:_
+- **[HIGH]** Cash on hand (240,000) is under half of average monthly outflow (2,518,470). Low buffer against a bad month.
+- **[MEDIUM]** 2 overdue invoice(s) worth 978,708 INR. Collecting these is the fastest cash win.
+
+[SME002] USER: I need about 15 lakh to bridge a cash gap. What financing suits me?
+[SME002] LEDGERPILOT (offline):
+**Financing options — ThreadCraft Apparel**
+_Purpose considered: matching your stated need._
+
+1. **Invoice Financing / Bill Discounting** — fit 90/100, APR 14–24%, est. annual interest ~₹285,000
+   Why: large open receivables (2,489,706) suit invoice financing; designed for short-term cash-gap bridging.
+   Needs: Verifiable open invoices from creditworthy clients.
+
+2. **Government MSME Scheme Loan (e.g. CGTMSE-backed)** — fit 70/100, APR 9–14%, est. annual interest ~₹172,500
+   Why: GST-registered MSME — eligible for low-cost govt-backed credit.
+   Needs: Valid MSME/GST registration and eligible sector.
+
+3. **Working Capital Term Loan** — fit 65/100, APR 12–18%, est. annual interest ~₹225,000
+   Why: positive average net cash flow supports fixed EMIs.
+   Needs: Positive average monthly net cash flow over last 6 months.
+
+_Not yet eligible, e.g._ Business Overdraft / Cash Credit Line: credit band Fair (650-699) below required Good (720-759).
+
+_These are explainable suggestions, not a credit offer. Final terms depend on the lender's assessment._
+
+[SME001] USER: I want a loan of 8 lakh for expansion. What are my options?
+[SME001] LEDGERPILOT (offline):
+**Financing options — Brew & Bloom Cafe**
+_Purpose considered: matching your stated need._
+
+1. **Invoice Financing / Bill Discounting** — fit 80/100, APR 14–24%, est. annual interest ~₹152,000
+   Why: large open receivables (765,054) suit invoice financing.
+   Needs: Verifiable open invoices from creditworthy clients.
+
+2. **Government MSME Scheme Loan (e.g. CGTMSE-backed)** — fit 78/100, APR 9–14%, est. annual interest ~₹92,000
+   Why: GST-registered MSME — eligible for low-cost govt-backed credit; good structural fit for expansion.
+   Needs: Valid MSME/GST registration and eligible sector.
+
+3. **Working Capital Term Loan** — fit 73/100, APR 12–18%, est. annual interest ~₹120,000
+   Why: positive average net cash flow supports fixed EMIs; good structural fit for expansion.
+   Needs: Positive average monthly net cash flow over last 6 months.
+
+_These are explainable suggestions, not a credit offer. Final terms depend on the lender's assessment._
+
+----------------------------------------------------------------------
+PERMISSION DEMO 1: action requested — must be confirmed, not auto-run
+----------------------------------------------------------------------
+
+[SME002] USER: Set an alert to chase the overdue invoices next Monday.
+[SME002] LEDGERPILOT (offline):
+⚠️ This needs your confirmation before I act:
+
+**invoice_followup for SME002 on next cycle: Set an alert to chase the overdue invoices next Monday.**
+
+Reply 'yes' to confirm, or tell me what to change.
+   << awaiting confirmation: invoice_followup for SME002 on next cycle: Set an alert to chase the overdue invoices next Monday. >>
+
+----------------------------------------------------------------------
+PERMISSION DEMO 2: user confirms the pending action -> it executes
+----------------------------------------------------------------------
+
+[SME002] USER: Yes, go ahead.
+[SME002] LEDGERPILOT (offline):
+✅ Done — scheduled: invoice_followup for SME002 on next cycle: Set an alert to chase the overdue invoices next Monday.
+
+----------------------------------------------------------------------
+PERMISSION DEMO 3: read-only agent cannot act at all
+----------------------------------------------------------------------
+[SME001] LEDGERPILOT: _schedule_action: blocked: Tool requires State-changing action (confirmation required) but agent ceiling is Read-only analysis._
+
+======================================================================
+EVIDENCE SUMMARY
+Total audit events logged: 37
+  assistant_reply          7
+  confirmation_required    1
+  permission_denied        1
+  plan                     7
+  tool_call                8
+  tool_result              6
+  user_message             7
+Authorised state-changing actions in ledger: 1
+======================================================================

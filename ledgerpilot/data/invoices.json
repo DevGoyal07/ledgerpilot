@@ -1,0 +1,71 @@
+{
+  "SME001": [
+    {
+      "invoice_id": "SME001-INV001",
+      "client": "Local Events Co.",
+      "issued_date": "2026-09-19",
+      "due_date": "2026-10-04",
+      "amount": 765053.73,
+      "status": "overdue",
+      "days_to_due": -16
+    }
+  ],
+  "SME002": [
+    {
+      "invoice_id": "SME002-INV001",
+      "client": "Northline Retail",
+      "issued_date": "2026-08-01",
+      "due_date": "2026-10-30",
+      "amount": 966954.65,
+      "status": "open",
+      "days_to_due": 10
+    },
+    {
+      "invoice_id": "SME002-INV002",
+      "client": "Northline Retail",
+      "issued_date": "2026-08-12",
+      "due_date": "2026-10-11",
+      "amount": 665108.84,
+      "status": "overdue",
+      "days_to_due": -9
+    },
+    {
+      "invoice_id": "SME002-INV003",
+      "client": "UrbanWeave Pvt Ltd",
+      "issued_date": "2026-09-23",
+      "due_date": "2026-11-07",
+      "amount": 544043.1,
+      "status": "open",
+      "days_to_due": 18
+    },
+    {
+      "invoice_id": "SME002-INV004",
+      "client": "Northline Retail",
+      "issued_date": "2026-09-06",
+      "due_date": "2026-10-06",
+      "amount": 313599.54,
+      "status": "overdue",
+      "days_to_due": -14
+    }
+  ],
+  "SME003": [
+    {
+      "invoice_id": "SME003-INV001",
+      "client": "Nimbus SaaS",
+      "issued_date": "2026-09-04",
+      "due_date": "2026-10-04",
+      "amount": 492258.75,
+      "status": "overdue",
+      "days_to_due": -16
+    },
+    {
+      "invoice_id": "SME003-INV002",
+      "client": "Nimbus SaaS",
+      "issued_date": "2026-09-19",
+      "due_date": "2026-10-04",
+      "amount": 326719.98,
+      "status": "overdue",
+      "days_to_due": -16
+    }
+  ]
+}

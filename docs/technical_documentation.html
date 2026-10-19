@@ -1,0 +1,209 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="_docstyle.css"></head><body>
+
+<div class="cover">
+<p class="subtitle">LedgerPilot</p>
+<h1>Technical Documentation</h1>
+<p class="meta"><b>2026 FinTechathon · WeBank FinTech College Students Challenge — International Track</b><br>
+Topic E — SME Finance Copilot &nbsp;·&nbsp; <span class="tag">v1.0</span> &nbsp;·&nbsp; October 2026</p>
+</div>
+
+<p>LedgerPilot is an AI agent that acts as a finance copilot for small-business
+owners. This document describes its system architecture, the core algorithms
+behind each capability, the data model, and the security design. A companion
+<i>Security Self-Assessment</i> covers the permission model and known-risk list in depth.</p>
+
+<h2>1. Problem &amp; scope</h2>
+<p>Small and medium enterprises (SMEs) rarely have a finance team. Owners juggle
+operations while cash-flow problems build silently, financing decisions are made
+with incomplete information, and the cost of a bad borrowing choice is high.
+LedgerPilot addresses three concrete pain points from Topic E:</p>
+<ul>
+<li><b>Cash-flow management with alerts</b> — know early when money will get tight.</li>
+<li><b>Financing-option matching</b> — find the right instrument, with reasons.</li>
+<li><b>Business financial analysis</b> — understand the health of the business at a glance.</li>
+</ul>
+<p>The system is built as an <b>agent</b>: it reasons about which capabilities to
+invoke for a given request, executes them, and can take follow-up actions —
+subject to a permission model that keeps a human in control of anything that
+changes state.</p>
+
+<h2>2. System architecture</h2>
+<p>LedgerPilot follows a four-stage agent loop — <b>plan → gate → execute →
+narrate</b> — over a registry of typed tools, with every step written to an
+append-only audit log.</p>
+
+<pre>          +-----------------------------------------------+
+  user -&gt; |                 Agent core                     |
+          |   plan  -&gt;  permission gate  -&gt;  execute  -&gt; narrate
+          +----+----------------+----------------+---------+
+               |                |                |
+        +------v------+   +------v-----+   +------v------+
+        |  LLM        |   |   Tools    |   |  Audit log  |
+        | adapter     |   |  registry  |   |  (JSONL)    |
+        | api|offline |   +------+-----+   +-------------+
+        +-------------+          |
+                       +---------+----------+-------------+
+                 analyze_     financial_   match_      schedule_
+                 cashflow     analysis     financing   action  (T2,
+                   (T0)         (T0)         (T1)       confirm-gated)
+                                  |
+                           +------v------+
+                           |  Datastore   |  read-only sandbox:
+                           |  businesses, |  3 SMEs, 6 months of
+                           |  txns, inv., |  transactions, open
+                           |  products    |  invoices, product catalog
+                           +-------------+</pre>
+
+<h3>2.1 Components</h3>
+<table>
+<tr><th>Module</th><th>Responsibility</th></tr>
+<tr><td><code>agent/core.py</code></td><td>The agent loop; orchestrates planning, gating, tool execution, and narration. Hosts the <code>AuditLogger</code>.</td></tr>
+<tr><td><code>agent/llm.py</code></td><td>LLM adapter with two interchangeable backends (live API / deterministic offline). Exposes <code>plan()</code> and <code>narrate()</code>.</td></tr>
+<tr><td><code>agent/permissions.py</code></td><td>The three-tier permission model and confirmation logic.</td></tr>
+<tr><td><code>agent/datastore.py</code></td><td>Read-only access to the sandbox data; cached loads.</td></tr>
+<tr><td><code>tools/</code></td><td>Four tools, each declaring a <code>REQUIRED_TIER</code> and a JSON <code>SCHEMA</code> for LLM tool-calling.</td></tr>
+<tr><td><code>ui/</code></td><td>Flask app and single-page chat interface with a live business snapshot.</td></tr>
+<tr><td><code>data/</code></td><td>Business profiles, financing-product catalog, deterministic data generator.</td></tr>
+</table>
+
+<h3>2.2 The dual LLM backend</h3>
+<p>The adapter speaks one small interface regardless of backend:</p>
+<pre>plan(user_msg, context)             -&gt; list[ToolCall]
+narrate(user_msg, tool_results, ctx) -&gt; str</pre>
+<ul>
+<li><b>API backend</b> — any OpenAI-compatible chat-completions endpoint with
+native tool-calling. Activated when <code>LEDGERPILOT_API_KEY</code> is set. Used for the live demo.</li>
+<li><b>Offline backend</b> — a deterministic intent router (regex-based intent
+detection + entity extraction for business, amount, and purpose) followed by a
+templating narrator that verbalises structured tool output. Requires no network
+or key.</li>
+</ul>
+<div class="callout">The offline backend is a deliberate engineering choice,
+not a stub. It lets the <b>entire agent loop — including permission gating and
+audit logging — run reproducibly in any sandbox</b>, which is how the submitted
+execution evidence is generated. Flipping on an API key upgrades the reasoning
+quality without changing tools, gating, or logging.</div>
+
+<h2>3. Core algorithms</h2>
+
+<h3>3.1 Cash-flow analysis &amp; proactive alerts <span class="pill">(analyze_cashflow, T0)</span></h3>
+<p>Transactions are bucketed by month into inflow/outflow; the engine then
+computes net position, a runway estimate, a 30-day projection, and a set of
+alerts:</p>
+<ul>
+<li><b>Runway</b> — when average monthly net is negative:
+<code>runway_months = cash_on_hand / |avg_monthly_net|</code>. Flagged
+<span class="risk-high">high</span> below 3 months, <span class="risk-med">medium</span> below 6.</li>
+<li><b>Thin-buffer alert</b> — fires when
+<code>cash_on_hand &lt; 0.5 × avg_monthly_outflow</code>.</li>
+<li><b>Expense-spike detection</b> — per category, the latest month is compared
+against that category's own history using a 2-sigma rule:
+<code>current &gt; mean + 2·stdev</code> <i>and</i> <code>current &gt; 1.3 × mean</code>
+(the second condition suppresses noise on low-variance categories).</li>
+<li><b>30-day projection</b> —
+<code>cash + avg_net + 0.5 × receivables_due_within_30d</code>
+(a conservative half-collection assumption on near-term invoices).</li>
+<li><b>Overdue-receivable alert</b> — totals invoices past due and surfaces them
+as the fastest available cash win.</li>
+</ul>
+
+<h3>3.2 Financial-health analysis <span class="pill">(financial_analysis, T0)</span></h3>
+<p>Core metrics are derived from the six-month transaction window: net margin,
+expense ratio, debt-to-annual-revenue, revenue trend (first-half vs second-half
+average), and the top three cost drivers by share of spend.</p>
+<p>These feed an <b>explainable 0–100 health score</b> built from four
+normalised components, each independently interpretable:</p>
+<table>
+<tr><th>Component</th><th>Normalisation</th><th>Weight</th></tr>
+<tr><td>Margin</td><td><code>min(100, net_margin% × 4)</code> — 25% margin → 100</td><td>30%</td></tr>
+<tr><td>Liquidity</td><td><code>min(100, cash / outflow × 50)</code> — 2 months cash → 100</td><td>25%</td></tr>
+<tr><td>Leverage</td><td><code>100 − debt_to_annual_revenue × 100</code> — debt-free → 100</td><td>25%</td></tr>
+<tr><td>Growth</td><td><code>50 + revenue_trend% × 2.5</code> — flat → 50</td><td>20%</td></tr>
+</table>
+<p>The final score is the weighted sum, mapped to a band
+(Strong ≥75, Stable ≥55, Watch ≥40, else At risk). Because the components and
+weights are returned alongside the score, every number is defensible — a
+requirement for financial explainability and compliance.</p>
+
+<h3>3.3 Financing matcher <span class="pill">(match_financing, T1)</span></h3>
+<p>A two-stage, fully rule-based matcher over a catalog of six financing product
+types (term loan, invoice financing, credit line, revenue-based, government MSME
+scheme, merchant cash advance):</p>
+<ol>
+<li><b>Hard eligibility</b> — credit-band rank, minimum business age, and amount
+caps. Failures are recorded <i>with reasons</i> and reported as "not yet eligible".</li>
+<li><b>Fit scoring</b> — eligible products start at 50 and are adjusted by signals
+derived from the business: open-receivables ratio (favours invoice financing),
+recurring tight months (favours a revolving line), margin (gates revenue-based),
+GST registration (favours low-cost government schemes), positive net cash flow
+(supports term-loan EMIs), plus purpose nudges from the user's stated intent.
+Merchant cash advance is penalised as a last resort.</li>
+</ol>
+<p>Each recommendation carries its fit score, APR range, an estimated annual
+interest cost, the explicit reasons it fits, and its key requirement. The matcher
+never issues a credit decision — only explainable guidance with a clear disclaimer.</p>
+
+<h3>3.4 Action scheduling <span class="pill">(schedule_action, T2)</span></h3>
+<p>The one state-changing tool. It writes a reminder/alert to an actions ledger
+(in production: fires a real notification). It can never execute without an
+explicit, matching user confirmation — see §5.</p>
+
+<h2>4. Data model</h2>
+<p>The sandbox mirrors what a real deployment would read from an accounting
+integration (e.g. Tally, Zoho Books, or bank statements), so swapping in a live
+data source is a datastore change, not an algorithm change.</p>
+<table>
+<tr><th>Entity</th><th>Key fields</th></tr>
+<tr><td>Business</td><td>id, sector, currency, monthly revenue/expense averages, cash on hand, outstanding debt, credit-score band, GST status, account age</td></tr>
+<tr><td>Transaction</td><td>txn_id, date, type (credit/debit), category, amount</td></tr>
+<tr><td>Invoice</td><td>invoice_id, client, issued/due dates, amount, status (open/overdue), days-to-due</td></tr>
+<tr><td>Financing product</td><td>type, provider, amount range, APR range, tenure, minimum credit band &amp; business age, collateral, key requirement</td></tr>
+</table>
+<p>Data is generated deterministically (fixed seed) so that execution evidence is
+byte-for-byte reproducible across runs.</p>
+
+<h2>5. Security design (summary)</h2>
+<p>Security is treated as a first-class design concern, not a wrapper. The four
+pillars:</p>
+<ul>
+<li><b>Permission tiers</b> — every tool declares the minimum tier it needs (T0
+read, T1 recommend, T2 act). The agent runs under a configurable ceiling.</li>
+<li><b>Confirmation-always for actions</b> — a T2 tool raises
+<code>ConfirmationRequired</code> unless the user has explicitly confirmed the
+exact pending action. The agent never self-approves.</li>
+<li><b>Full auditability</b> — every user message, plan, tool call (with its
+required tier), result, confirmation prompt, and denial is appended to a JSONL
+audit log.</li>
+<li><b>Explainability &amp; non-advice</b> — recommendations always carry their
+reasons and a disclaimer that they are not a credit offer or regulated financial advice.</li>
+</ul>
+<p>Full detail, including the known-risk list and mitigations, is in the
+<i>Security Self-Assessment</i> deliverable.</p>
+
+<h2>6. Deployment</h2>
+<pre>pip install -r requirements.txt
+python ledgerpilot/data/generate_data.py   # deterministic sandbox data
+python -m ledgerpilot.ui.app               # web app at :5000
+python run_scenario.py                     # regenerate execution evidence
+pytest -q                                  # 12 tests</pre>
+<p>Offline mode needs only Flask. The live LLM backend is enabled by setting
+<code>LEDGERPILOT_API_KEY</code> (any OpenAI-compatible provider) in <code>.env</code>.
+The same code path serves both; the active engine is shown in the UI header.</p>
+
+<h2>7. Limitations &amp; roadmap</h2>
+<ul>
+<li>Sandbox data stands in for live accounting/bank integrations; the datastore
+interface is the single seam to replace.</li>
+<li>The financing catalog is representative, not exhaustive, and APRs are
+indicative ranges rather than live lender quotes.</li>
+<li>Next steps: live accounting-software connectors, lender-API integration for
+real quotes, multi-currency support for cross-border SMEs, and a scheduled
+background pass that pushes alerts proactively between sessions.</li>
+</ul>
+
+<hr>
+<p class="small">All data in this project is simulated. No real account, customer,
+or money is accessed. &nbsp;·&nbsp; LedgerPilot — FinTechathon 2026, International Track.</p>
+
+</body></html>

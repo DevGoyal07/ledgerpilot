@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LedgerPilot — finance copilot for small businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14241C; --ink-soft:#1E2A24; --paper:#FBF8F1; --paper-2:#F3EEE2;
+    --brass:#B08D3F; --brass-deep:#8A6D2C; --muted:#6B7A70; --line:#E2DBCB;
+    --hi:#B23A2E; --med:#C08A2D; --ok:#3E7A4E;
+    --shadow:0 1px 2px rgba(20,36,28,.06), 0 8px 24px rgba(20,36,28,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    font-family:Inter,system-ui,sans-serif;color:var(--ink-soft);
+    background:var(--paper);display:flex;flex-direction:column;min-height:100vh;
+  }
+  a{color:inherit}
+  /* top bar */
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 22px;border-bottom:1px solid var(--line);background:var(--ink);color:var(--paper);
+  }
+  .brand{display:flex;align-items:baseline;gap:10px}
+  .brand .mark{font-family:Fraunces,serif;font-weight:600;font-size:22px;letter-spacing:.2px}
+  .brand .mark b{color:var(--brass)}
+  .brand .tag{font-size:12.5px;color:#C9D2CC}
+  .mode{display:flex;align-items:center;gap:8px;font-size:12px;color:#C9D2CC}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--brass)}
+  /* layout */
+  main{flex:1;display:grid;grid-template-columns:340px 1fr;min-height:0}
+  /* left snapshot */
+  aside{border-right:1px solid var(--line);background:var(--paper-2);padding:18px;overflow:auto}
+  .switch{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .switch label{font-size:11.5px;color:var(--muted);text-transform:none}
+  select{
+    font-family:inherit;font-size:14px;padding:10px 12px;border:1px solid var(--line);
+    border-radius:10px;background:var(--paper);color:var(--ink);
+  }
+  .snap-name{font-family:Fraunces,serif;font-size:19px;color:var(--ink);margin:2px 0 1px}
+  .snap-sub{font-size:12.5px;color:var(--muted);margin-bottom:16px}
+  .score-wrap{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+  .ring{position:relative;width:96px;height:96px;flex:none}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .ring .num{font-family:Fraunces,serif;font-size:28px;font-weight:600;color:var(--ink);line-height:1}
+  .ring .den{font-size:11px;color:var(--muted)}
+  .score-meta .band{font-size:15px;font-weight:600}
+  .score-meta .note{font-size:12.5px;color:var(--muted);max-width:150px;margin-top:3px}
+  .stat{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted var(--line);font-size:13.5px}
+  .stat span:first-child{color:var(--muted)}
+  .stat b{font-weight:600;color:var(--ink)}
+  .alerts{margin-top:16px}
+  .alerts h4{font-family:Fraunces,serif;font-weight:600;font-size:14px;color:var(--ink);margin:0 0 8px}
+  .alert{display:flex;gap:8px;padding:9px 10px;border-radius:9px;background:var(--paper);
+    border:1px solid var(--line);font-size:12.5px;margin-bottom:7px;line-height:1.35}
+  .alert .sev{width:6px;border-radius:4px;flex:none}
+  .sev.high{background:var(--hi)} .sev.medium{background:var(--med)} .sev.low{background:var(--ok)}
+  /* chat */
+  .chat{display:flex;flex-direction:column;min-height:0}
+  .log{flex:1;overflow:auto;padding:26px 28px;display:flex;flex-direction:column;gap:16px}
+  .msg{max-width:680px;animation:rise .18s ease-out}
+  @keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.msg{animation:none}}
+  .msg.user{align-self:flex-end}
+  .bubble{padding:13px 16px;border-radius:14px;font-size:14px;line-height:1.5}
+  .user .bubble{background:var(--ink);color:var(--paper);border-bottom-right-radius:4px}
+  .bot .who{font-family:Fraunces,serif;font-size:13px;color:var(--brass-deep);margin:0 0 4px 2px}
+  .bot .bubble{background:var(--paper-2);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .bubble h1,.bubble h2,.bubble h3{font-family:Fraunces,serif;margin:.2em 0}
+  .bubble strong{color:var(--ink)}
+  .bubble ul{margin:.4em 0;padding-left:1.1em}
+  .bubble p{margin:.4em 0}
+  .pending{border-color:var(--med);background:#FBF3DF}
+  /* composer */
+  .composer{border-top:1px solid var(--line);padding:14px 20px;background:var(--paper)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .chip{font-size:12.5px;padding:6px 11px;border:1px solid var(--line);border-radius:20px;
+    background:var(--paper-2);cursor:pointer;color:var(--ink-soft)}
+  .chip:hover{border-color:var(--brass)}
+  .row{display:flex;gap:10px}
+  .row input{flex:1;font-family:inherit;font-size:14px;padding:12px 14px;border:1px solid var(--line);
+    border-radius:12px;background:var(--paper)}
+  .row input:focus{outline:2px solid var(--brass);outline-offset:1px}
+  .row button{font-family:inherit;font-size:14px;font-weight:600;padding:12px 20px;border:none;
+    border-radius:12px;background:var(--brass);color:#fff;cursor:pointer}
+  .row button:hover{background:var(--brass-deep)}
+  .row button:disabled{opacity:.5;cursor:default}
+  @media (max-width:820px){
+    main{grid-template-columns:1fr} aside{display:none}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="mark">Ledger<b>Pilot</b></span>
+    <span class="tag">your business's finance copilot</span>
+  </div>
+  <div class="mode">
+    <span class="dot"></span>
+    <span id="mode-label">Guarded autonomy · actions need your OK</span>
+    <span style="opacity:.6">·</span>
+    <span id="backend">{{ backend }} engine</span>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <div class="switch">
+      <label for="biz">Business</label>
+      <select id="biz">
+        {% for b in businesses %}
+        <option value="{{ b.id }}">{{ b.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div id="snapshot"><div class="snap-sub">Loading snapshot…</div></div>
+  </aside>
+
+  <section class="chat">
+    <div class="log" id="log"></div>
+    <div class="composer">
+      <div class="chips" id="chips">
+        <span class="chip">How is my business doing?</span>
+        <span class="chip">Will I run short of cash?</span>
+        <span class="chip">What financing suits me?</span>
+        <span class="chip">Remind me to chase overdue invoices</span>
+      </div>
+      <div class="row">
+        <input id="input" placeholder="Ask about cash flow, health, or financing…" autocomplete="off">
+        <button id="send">Send</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const log = $("#log"), input = $("#input"), send = $("#send"), bizSel = $("#biz");
+
+function fmt(n){ return "₹" + Math.round(n).toLocaleString("en-IN"); }
+function mdLite(t){
+  return t
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>")
+    .replace(/(^|[\s(])_(.+?)_($|[\s.,;:)])/g,"$1<em>$2</em>$3")
+    .replace(/^- (.*)$/gm,"<li>$1</li>")
+    .replace(/(<li>[\s\S]*?<\/li>)/g,"<ul>$1</ul>")
+    .replace(/\n{2,}/g,"</p><p>").replace(/\n/g,"<br>");
+}
+function addMsg(who, html){
+  const wrap = document.createElement("div");
+  wrap.className = "msg " + who;
+  wrap.innerHTML = (who==="bot" ? '<div class="who">LedgerPilot</div>' : '')
+    + '<div class="bubble"><p>'+html+'</p></div>';
+  log.appendChild(wrap); log.scrollTop = log.scrollHeight;
+  return wrap;
+}
+
+async function loadSnapshot(id){
+  const r = await fetch("/api/summary/"+id); const d = await r.json();
+  const h = d.health, c = d.cashflow;
+  const pct = h.health_score, circ = 2*Math.PI*42, off = circ*(1-pct/100);
+  const col = pct>=75 ? "var(--ok)" : pct>=55 ? "var(--brass)" : pct>=40 ? "var(--med)" : "var(--hi)";
+  const alerts = c.alerts.map(a=>`<div class="alert"><div class="sev ${a.severity}"></div><div>${a.message}</div></div>`).join("") || '<div class="snap-sub">No active alerts.</div>';
+  $("#snapshot").innerHTML = `
+    <div class="snap-name">${h.business}</div>
+    <div class="snap-sub">${h.net_margin_pct}% net margin · ${h.revenue_trend_pct>=0?'+':''}${h.revenue_trend_pct}% revenue trend</div>
+    <div class="score-wrap">
+      <div class="ring">
+        <svg width="96" height="96"><circle cx="48" cy="48" r="42" fill="none" stroke="var(--line)" stroke-width="8"/>
+        <circle cx="48" cy="48" r="42" fill="none" stroke="${col}" stroke-width="8" stroke-linecap="round"
+          stroke-dasharray="${circ}" stroke-dashoffset="${off}"/></svg>
+        <div class="val"><div class="num">${pct}</div><div class="den">/ 100</div></div>
+      </div>
+      <div class="score-meta"><div class="band" style="color:${col}">${h.health_band}</div>
+        <div class="note">health score, weighted across margin, liquidity, leverage & growth</div></div>
+    </div>
+    <div class="stat"><span>Avg monthly revenue</span><b>${fmt(h.avg_monthly_revenue)}</b></div>
+    <div class="stat"><span>Avg monthly net</span><b>${fmt(c.avg_monthly_net)}</b></div>
+    <div class="stat"><span>Cash on hand</span><b>${fmt(c.cash_on_hand)}</b></div>
+    <div class="stat"><span>Receivables due 30d</span><b>${fmt(c.receivables_due_30d)}</b></div>
+    <div class="alerts"><h4>Proactive alerts</h4>${alerts}</div>`;
+}
+
+async function sendMsg(text){
+  if(!text.trim()) return;
+  addMsg("user", text.replace(/</g,"&lt;"));
+  input.value=""; send.disabled=true;
+  const typing = addMsg("bot","…");
+  try{
+    const r = await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({business_id:bizSel.value, message:text})});
+    const d = await r.json();
+    typing.querySelector(".bubble").innerHTML = "<p>"+mdLite(d.reply)+"</p>";
+    if(d.pending_confirmation) typing.querySelector(".bubble").classList.add("pending");
+    $("#backend").textContent = d.backend + " engine";
+    loadSnapshot(bizSel.value);
+  }catch(e){ typing.querySelector(".bubble").innerHTML="Something went wrong. Try again."; }
+  send.disabled=false; input.focus();
+}
+
+send.onclick = ()=>sendMsg(input.value);
+input.onkeydown = e=>{ if(e.key==="Enter") sendMsg(input.value); };
+document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>sendMsg(c.textContent));
+bizSel.onchange = ()=>{ loadSnapshot(bizSel.value); log.innerHTML="";
+  addMsg("bot","Now looking at <strong>"+bizSel.options[bizSel.selectedIndex].text+"</strong>. Ask me anything about its money.");
+};
+
+loadSnapshot(bizSel.value);
+addMsg("bot","Hi — I'm LedgerPilot. I keep an eye on your cash flow, flag problems early, and help you find the right financing. Pick a prompt below or ask me anything.");
+</script>
+</body>
+</html>

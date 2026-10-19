@@ -1,0 +1,57 @@
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "How is PixelForge doing financially?", "business": "SME003", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["financial_analysis", "match_financing"], "args": [{"business_id": "SME003"}, {"business_id": "SME003"}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "financial_analysis", "required_tier": 0, "args": {"business_id": "SME003"}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_result", "tool": "financial_analysis", "ok": true, "summary": {"business": "PixelForge Studios", "currency": "INR", "avg_monthly_revenue": 1146506.48, "avg_monthly_expense": 768404.84}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "match_financing", "required_tier": 1, "args": {"business_id": "SME003"}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_result", "tool": "match_financing", "ok": true, "summary": {"business": "PixelForge Studios", "currency": "INR", "amount_needed": null, "purpose": null}}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 1181, "pending_confirmation": false}
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "Will ThreadCraft run short of cash? Show me the risks.", "business": "SME002", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["analyze_cashflow"], "args": [{"business_id": "SME002"}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "analyze_cashflow", "required_tier": 0, "args": {"business_id": "SME002"}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_result", "tool": "analyze_cashflow", "ok": true, "summary": {"business": "ThreadCraft Apparel", "currency": "INR", "monthly_series": [{"month": "2026-05", "inflow": 2606133.54, "outflow": 2515415.52, "net": 90718.02}, {"month": "2026-06", "inflow": 2694182.16, "outflow": 2651357.29, "net": 42824.87}, {"month": "2026-07", "inflow": 2789073.89, "outflow": 2522602.72, "net": 266471.17}, {"month": "2026-08", "inflow": 2674240.51, "outflow": 2662427.17, "net": 11813.34}, {"month": "2026-09", "inflow": 2656571.59, "outflow": 2371993.69, "net": 284577.9}, {"month": "2026-10", "inflow": 2448495.34, "outflow": 2387022.11, "net": 61473.23}], "avg_monthly_net": 126313.09}}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 353, "pending_confirmation": false}
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "I need about 15 lakh to bridge a cash gap. What financing suits me?", "business": "SME002", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["match_financing"], "args": [{"business_id": "SME002", "amount_needed": 1500000.0, "purpose": "i need about 15 lakh to bridge a cash gap. what financing suits me?"}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "match_financing", "required_tier": 1, "args": {"business_id": "SME002", "amount_needed": 1500000.0, "purpose": "i need about 15 lakh to bridge a cash gap. what financing suits me?"}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_result", "tool": "match_financing", "ok": true, "summary": {"business": "ThreadCraft Apparel", "currency": "INR", "amount_needed": 1500000.0, "purpose": "i need about 15 lakh to bridge a cash gap. what financing suits me?"}}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 1058, "pending_confirmation": false}
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "I want a loan of 8 lakh for expansion. What are my options?", "business": "SME001", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["match_financing"], "args": [{"business_id": "SME001", "amount_needed": 800000.0, "purpose": "i want a loan of 8 lakh for expansion. what are my options?"}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "match_financing", "required_tier": 1, "args": {"business_id": "SME001", "amount_needed": 800000.0, "purpose": "i want a loan of 8 lakh for expansion. what are my options?"}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_result", "tool": "match_financing", "ok": true, "summary": {"business": "Brew & Bloom Cafe", "currency": "INR", "amount_needed": 800000.0, "purpose": "i want a loan of 8 lakh for expansion. what are my options?"}}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 957, "pending_confirmation": false}
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "Set an alert to chase the overdue invoices next Monday.", "business": "SME002", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["schedule_action"], "args": [{"business_id": "SME002", "action_type": "invoice_followup", "detail": "Set an alert to chase the overdue invoices next Monday.", "trigger_date": null}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "schedule_action", "required_tier": 2, "args": {"business_id": "SME002", "action_type": "invoice_followup", "detail": "Set an alert to chase the overdue invoices next Monday.", "trigger_date": null}}
+{"ts": "2026-10-20T01:25:07", "event": "confirmation_required", "tool": "schedule_action", "action": "invoice_followup for SME002 on next cycle: Set an alert to chase the overdue invoices next Monday."}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 201, "pending_confirmation": true}
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "Yes, go ahead.", "business": "SME002", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["schedule_action"], "args": [{"business_id": "SME002", "action_type": "invoice_followup", "detail": "Set an alert to chase the overdue invoices next Monday.", "trigger_date": null}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "schedule_action", "required_tier": 2, "args": {"business_id": "SME002", "action_type": "invoice_followup", "detail": "Set an alert to chase the overdue invoices next Monday.", "trigger_date": null}}
+{"ts": "2026-10-20T01:25:07", "event": "tool_result", "tool": "schedule_action", "ok": true, "summary": {"status": "scheduled", "confirmation": "invoice_followup for SME002 on next cycle: Set an alert to chase the overdue invoices next Monday.", "record": {"ts": "2026-10-20T01:25:07", "business_id": "SME002", "action_type": "invoice_followup", "detail": "Set an alert to chase the overdue invoices next Monday.", "trigger_date": null, "status": "scheduled"}}}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 118, "pending_confirmation": false}
+{"ts": "2026-10-20T01:25:07", "event": "user_message", "text": "yes confirm the reminder", "business": "SME001", "backend": "offline"}
+{"ts": "2026-10-20T01:25:07", "event": "plan", "tools": ["schedule_action"], "args": [{"business_id": "SME001", "action_type": "payment_reminder", "detail": "rent due", "trigger_date": "2026-11-03"}]}
+{"ts": "2026-10-20T01:25:07", "event": "tool_call", "tool": "schedule_action", "required_tier": 2, "args": {"business_id": "SME001", "action_type": "payment_reminder", "detail": "rent due", "trigger_date": "2026-11-03"}}
+{"ts": "2026-10-20T01:25:07", "event": "permission_denied", "tool": "schedule_action", "reason": "Tool requires State-changing action (confirmation required) but agent ceiling is Read-only analysis."}
+{"ts": "2026-10-20T01:25:07", "event": "assistant_reply", "chars": 128, "pending_confirmation": false}
+{"ts": "2026-10-20T01:26:21", "event": "user_message", "text": "How is my business doing?", "business": "SME001", "backend": "offline"}
+{"ts": "2026-10-20T01:26:21", "event": "plan", "tools": ["financial_analysis"], "args": [{"business_id": "SME001"}]}
+{"ts": "2026-10-20T01:26:21", "event": "tool_call", "tool": "financial_analysis", "required_tier": 0, "args": {"business_id": "SME001"}}
+{"ts": "2026-10-20T01:26:21", "event": "tool_result", "tool": "financial_analysis", "ok": true, "summary": {"business": "Brew & Bloom Cafe", "currency": "INR", "avg_monthly_revenue": 758439.23, "avg_monthly_expense": 705282.6}}
+{"ts": "2026-10-20T01:26:21", "event": "assistant_reply", "chars": 340, "pending_confirmation": false}
+{"ts": "2026-10-20T01:26:25", "event": "user_message", "text": "Will I run short of cash?", "business": "SME001", "backend": "offline"}
+{"ts": "2026-10-20T01:26:25", "event": "plan", "tools": ["analyze_cashflow"], "args": [{"business_id": "SME001"}]}
+{"ts": "2026-10-20T01:26:25", "event": "tool_call", "tool": "analyze_cashflow", "required_tier": 0, "args": {"business_id": "SME001"}}
+{"ts": "2026-10-20T01:26:25", "event": "tool_result", "tool": "analyze_cashflow", "ok": true, "summary": {"business": "Brew & Bloom Cafe", "currency": "INR", "monthly_series": [{"month": "2026-05", "inflow": 855980.22, "outflow": 790777.77, "net": 65202.45}, {"month": "2026-06", "inflow": 683649.53, "outflow": 661847.4, "net": 21802.13}, {"month": "2026-07", "inflow": 702176.12, "outflow": 667207.79, "net": 34968.33}, {"month": "2026-08", "inflow": 685008.86, "outflow": 688236.83, "net": -3227.97}, {"month": "2026-09", "inflow": 865665.36, "outflow": 676142.48, "net": 189522.88}, {"month": "2026-10", "inflow": 758155.3, "outflow": 747483.32, "net": 10671.98}], "avg_monthly_net": 53156.63}}
+{"ts": "2026-10-20T01:26:25", "event": "assistant_reply", "chars": 226, "pending_confirmation": false}
+{"ts": "2026-10-20T01:26:27", "event": "user_message", "text": "What financing suits me?", "business": "SME001", "backend": "offline"}
+{"ts": "2026-10-20T01:26:27", "event": "plan", "tools": ["match_financing"], "args": [{"business_id": "SME001"}]}
+{"ts": "2026-10-20T01:26:27", "event": "tool_call", "tool": "match_financing", "required_tier": 1, "args": {"business_id": "SME001"}}
+{"ts": "2026-10-20T01:26:27", "event": "tool_result", "tool": "match_financing", "ok": true, "summary": {"business": "Brew & Bloom Cafe", "currency": "INR", "amount_needed": null, "purpose": null}}
+{"ts": "2026-10-20T01:26:27", "event": "assistant_reply", "chars": 841, "pending_confirmation": false}
+{"ts": "2026-10-20T01:26:28", "event": "user_message", "text": "Remind me to chase overdue invoices", "business": "SME001", "backend": "offline"}
+{"ts": "2026-10-20T01:26:28", "event": "plan", "tools": ["schedule_action"], "args": [{"business_id": "SME001", "action_type": "invoice_followup", "detail": "Remind me to chase overdue invoices", "trigger_date": null}]}
+{"ts": "2026-10-20T01:26:28", "event": "tool_call", "tool": "schedule_action", "required_tier": 2, "args": {"business_id": "SME001", "action_type": "invoice_followup", "detail": "Remind me to chase overdue invoices", "trigger_date": null}}
+{"ts": "2026-10-20T01:26:28", "event": "confirmation_required", "tool": "schedule_action", "action": "invoice_followup for SME001 on next cycle: Remind me to chase overdue invoices"}
+{"ts": "2026-10-20T01:26:28", "event": "assistant_reply", "chars": 181, "pending_confirmation": true}

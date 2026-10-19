@@ -1,0 +1,61 @@
+{
+  "businesses": [
+    {
+      "id": "SME001",
+      "name": "Brew & Bloom Cafe",
+      "owner": "Ananya Rao",
+      "sector": "Food & Beverage (Retail)",
+      "country": "India",
+      "currency": "INR",
+      "founded_year": 2021,
+      "employees": 9,
+      "legal_form": "Private Limited",
+      "monthly_revenue_avg": 820000,
+      "monthly_expense_avg": 735000,
+      "cash_on_hand": 410000,
+      "outstanding_debt": 600000,
+      "credit_score_band": "Good (720-759)",
+      "gst_registered": true,
+      "bank_account_age_months": 54,
+      "profile_notes": "Stable neighbourhood cafe with a loyal base. Wants a small loan to open a second outlet. Seasonally dips in monsoon months (Jun-Aug)."
+    },
+    {
+      "id": "SME002",
+      "name": "ThreadCraft Apparel",
+      "owner": "Vikram Shetty",
+      "sector": "Manufacturing (Textiles)",
+      "country": "India",
+      "currency": "INR",
+      "founded_year": 2019,
+      "employees": 22,
+      "legal_form": "Partnership",
+      "monthly_revenue_avg": 2650000,
+      "monthly_expense_avg": 2585000,
+      "cash_on_hand": 240000,
+      "outstanding_debt": 3100000,
+      "credit_score_band": "Fair (650-699)",
+      "gst_registered": true,
+      "bank_account_age_months": 71,
+      "profile_notes": "B2B textile supplier. Large receivables tied up in 60-90 day client payment terms, causing recurring cash crunches despite healthy order book. High existing debt load."
+    },
+    {
+      "id": "SME003",
+      "name": "PixelForge Studios",
+      "owner": "Meera Nair",
+      "sector": "Services (Digital / Creative Agency)",
+      "country": "India",
+      "currency": "INR",
+      "founded_year": 2022,
+      "employees": 6,
+      "legal_form": "LLP",
+      "monthly_revenue_avg": 1120000,
+      "monthly_expense_avg": 760000,
+      "cash_on_hand": 1350000,
+      "outstanding_debt": 0,
+      "credit_score_band": "Excellent (760+)",
+      "gst_registered": true,
+      "bank_account_age_months": 38,
+      "profile_notes": "Fast-growing design agency, debt-free, strong margins. Exploring a working-capital line to take on larger retainer clients and hire ahead of demand."
+    }
+  ]
+}

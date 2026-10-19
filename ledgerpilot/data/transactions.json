@@ -1,0 +1,1835 @@
+{
+  "SME001": [
+    {
+      "txn_id": "SME001-T0013",
+      "date": "2026-05-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 227178.31
+    },
+    {
+      "txn_id": "SME001-T0004",
+      "date": "2026-05-02",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 93564.96
+    },
+    {
+      "txn_id": "SME001-T0014",
+      "date": "2026-05-03",
+      "type": "debit",
+      "category": "Rent",
+      "amount": 123350.08
+    },
+    {
+      "txn_id": "SME001-T0005",
+      "date": "2026-05-04",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 103251.79
+    },
+    {
+      "txn_id": "SME001-T0003",
+      "date": "2026-05-05",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 82251.08
+    },
+    {
+      "txn_id": "SME001-T0008",
+      "date": "2026-05-09",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 84053.63
+    },
+    {
+      "txn_id": "SME001-T0017",
+      "date": "2026-05-12",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 20315.03
+    },
+    {
+      "txn_id": "SME001-T0007",
+      "date": "2026-05-15",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 52235.48
+    },
+    {
+      "txn_id": "SME001-T0010",
+      "date": "2026-05-15",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 78622.5
+    },
+    {
+      "txn_id": "SME001-T0016",
+      "date": "2026-05-16",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 53916.94
+    },
+    {
+      "txn_id": "SME001-T0002",
+      "date": "2026-05-17",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 71052.55
+    },
+    {
+      "txn_id": "SME001-T0015",
+      "date": "2026-05-18",
+      "type": "debit",
+      "category": "Utilities",
+      "amount": 55765.47
+    },
+    {
+      "txn_id": "SME001-T0018",
+      "date": "2026-05-20",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 24731.29
+    },
+    {
+      "txn_id": "SME001-T0001",
+      "date": "2026-05-21",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 93637.22
+    },
+    {
+      "txn_id": "SME001-T0006",
+      "date": "2026-05-24",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 55565.08
+    },
+    {
+      "txn_id": "SME001-T0011",
+      "date": "2026-05-24",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 87274.08
+    },
+    {
+      "txn_id": "SME001-T0009",
+      "date": "2026-05-25",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 54471.85
+    },
+    {
+      "txn_id": "SME001-T0012",
+      "date": "2026-05-27",
+      "type": "debit",
+      "category": "Ingredients & Supplies",
+      "amount": 285520.65
+    },
+    {
+      "txn_id": "SME001-T0027",
+      "date": "2026-06-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 205416.11
+    },
+    {
+      "txn_id": "SME001-T0030",
+      "date": "2026-06-02",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 27108.85
+    },
+    {
+      "txn_id": "SME001-T0028",
+      "date": "2026-06-03",
+      "type": "debit",
+      "category": "Rent",
+      "amount": 109690.27
+    },
+    {
+      "txn_id": "SME001-T0023",
+      "date": "2026-06-05",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 86522.53
+    },
+    {
+      "txn_id": "SME001-T0024",
+      "date": "2026-06-06",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 148335.35
+    },
+    {
+      "txn_id": "SME001-T0020",
+      "date": "2026-06-13",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 81820.54
+    },
+    {
+      "txn_id": "SME001-T0022",
+      "date": "2026-06-13",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 96794.16
+    },
+    {
+      "txn_id": "SME001-T0025",
+      "date": "2026-06-13",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 96709.53
+    },
+    {
+      "txn_id": "SME001-T0029",
+      "date": "2026-06-16",
+      "type": "debit",
+      "category": "Utilities",
+      "amount": 47215.98
+    },
+    {
+      "txn_id": "SME001-T0019",
+      "date": "2026-06-18",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 86622.41
+    },
+    {
+      "txn_id": "SME001-T0031",
+      "date": "2026-06-18",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 39223.45
+    },
+    {
+      "txn_id": "SME001-T0021",
+      "date": "2026-06-21",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 86845.01
+    },
+    {
+      "txn_id": "SME001-T0032",
+      "date": "2026-06-25",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 22426.17
+    },
+    {
+      "txn_id": "SME001-T0026",
+      "date": "2026-06-27",
+      "type": "debit",
+      "category": "Ingredients & Supplies",
+      "amount": 210766.57
+    },
+    {
+      "txn_id": "SME001-T0045",
+      "date": "2026-07-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 195809.98
+    },
+    {
+      "txn_id": "SME001-T0046",
+      "date": "2026-07-03",
+      "type": "debit",
+      "category": "Rent",
+      "amount": 104519.87
+    },
+    {
+      "txn_id": "SME001-T0050",
+      "date": "2026-07-06",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 32070.69
+    },
+    {
+      "txn_id": "SME001-T0040",
+      "date": "2026-07-08",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 46355.56
+    },
+    {
+      "txn_id": "SME001-T0042",
+      "date": "2026-07-08",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 82652.22
+    },
+    {
+      "txn_id": "SME001-T0036",
+      "date": "2026-07-09",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 40043.96
+    },
+    {
+      "txn_id": "SME001-T0049",
+      "date": "2026-07-09",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 22636.29
+    },
+    {
+      "txn_id": "SME001-T0033",
+      "date": "2026-07-10",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 64932.18
+    },
+    {
+      "txn_id": "SME001-T0041",
+      "date": "2026-07-16",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 63720.82
+    },
+    {
+      "txn_id": "SME001-T0044",
+      "date": "2026-07-17",
+      "type": "debit",
+      "category": "Ingredients & Supplies",
+      "amount": 239094.72
+    },
+    {
+      "txn_id": "SME001-T0039",
+      "date": "2026-07-18",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 81886.78
+    },
+    {
+      "txn_id": "SME001-T0048",
+      "date": "2026-07-20",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 29566.94
+    },
+    {
+      "txn_id": "SME001-T0043",
+      "date": "2026-07-21",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 66128.4
+    },
+    {
+      "txn_id": "SME001-T0035",
+      "date": "2026-07-22",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 54948.14
+    },
+    {
+      "txn_id": "SME001-T0037",
+      "date": "2026-07-22",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 69375.2
+    },
+    {
+      "txn_id": "SME001-T0038",
+      "date": "2026-07-22",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 87310.2
+    },
+    {
+      "txn_id": "SME001-T0047",
+      "date": "2026-07-25",
+      "type": "debit",
+      "category": "Utilities",
+      "amount": 43509.3
+    },
+    {
+      "txn_id": "SME001-T0034",
+      "date": "2026-07-27",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 44822.66
+    },
+    {
+      "txn_id": "SME001-T0061",
+      "date": "2026-08-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 204075.33
+    },
+    {
+      "txn_id": "SME001-T0055",
+      "date": "2026-08-02",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 46457.57
+    },
+    {
+      "txn_id": "SME001-T0062",
+      "date": "2026-08-03",
+      "type": "debit",
+      "category": "Rent",
+      "amount": 111491.77
+    },
+    {
+      "txn_id": "SME001-T0053",
+      "date": "2026-08-05",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 72402.81
+    },
+    {
+      "txn_id": "SME001-T0063",
+      "date": "2026-08-06",
+      "type": "debit",
+      "category": "Utilities",
+      "amount": 56901.33
+    },
+    {
+      "txn_id": "SME001-T0054",
+      "date": "2026-08-07",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 94818.25
+    },
+    {
+      "txn_id": "SME001-T0056",
+      "date": "2026-08-07",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 63283.78
+    },
+    {
+      "txn_id": "SME001-T0058",
+      "date": "2026-08-07",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 100373.07
+    },
+    {
+      "txn_id": "SME001-T0057",
+      "date": "2026-08-12",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 87987.7
+    },
+    {
+      "txn_id": "SME001-T0065",
+      "date": "2026-08-12",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 25926.66
+    },
+    {
+      "txn_id": "SME001-T0060",
+      "date": "2026-08-15",
+      "type": "debit",
+      "category": "Ingredients & Supplies",
+      "amount": 225886.33
+    },
+    {
+      "txn_id": "SME001-T0066",
+      "date": "2026-08-16",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 34817.2
+    },
+    {
+      "txn_id": "SME001-T0059",
+      "date": "2026-08-17",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 68247.82
+    },
+    {
+      "txn_id": "SME001-T0051",
+      "date": "2026-08-19",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 61518.9
+    },
+    {
+      "txn_id": "SME001-T0064",
+      "date": "2026-08-22",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 29138.21
+    },
+    {
+      "txn_id": "SME001-T0052",
+      "date": "2026-08-26",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 89918.96
+    },
+    {
+      "txn_id": "SME001-T0076",
+      "date": "2026-09-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 207409.64
+    },
+    {
+      "txn_id": "SME001-T0073",
+      "date": "2026-09-03",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 145513.34
+    },
+    {
+      "txn_id": "SME001-T0077",
+      "date": "2026-09-03",
+      "type": "debit",
+      "category": "Rent",
+      "amount": 112460.6
+    },
+    {
+      "txn_id": "SME001-T0072",
+      "date": "2026-09-05",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 115139.88
+    },
+    {
+      "txn_id": "SME001-T0079",
+      "date": "2026-09-05",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 31116.65
+    },
+    {
+      "txn_id": "SME001-T0070",
+      "date": "2026-09-06",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 110988.32
+    },
+    {
+      "txn_id": "SME001-T0081",
+      "date": "2026-09-10",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 35083.01
+    },
+    {
+      "txn_id": "SME001-T0071",
+      "date": "2026-09-13",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 90305.57
+    },
+    {
+      "txn_id": "SME001-T0068",
+      "date": "2026-09-14",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 91523.62
+    },
+    {
+      "txn_id": "SME001-T0067",
+      "date": "2026-09-15",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 74547.1
+    },
+    {
+      "txn_id": "SME001-T0075",
+      "date": "2026-09-18",
+      "type": "debit",
+      "category": "Ingredients & Supplies",
+      "amount": 204712.26
+    },
+    {
+      "txn_id": "SME001-T0078",
+      "date": "2026-09-23",
+      "type": "debit",
+      "category": "Utilities",
+      "amount": 50744.57
+    },
+    {
+      "txn_id": "SME001-T0080",
+      "date": "2026-09-23",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 34615.75
+    },
+    {
+      "txn_id": "SME001-T0069",
+      "date": "2026-09-26",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 134020.9
+    },
+    {
+      "txn_id": "SME001-T0074",
+      "date": "2026-09-26",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 103626.63
+    },
+    {
+      "txn_id": "SME001-T0089",
+      "date": "2026-10-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 227045.29
+    },
+    {
+      "txn_id": "SME001-T0090",
+      "date": "2026-10-03",
+      "type": "debit",
+      "category": "Rent",
+      "amount": 121806.99
+    },
+    {
+      "txn_id": "SME001-T0083",
+      "date": "2026-10-04",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 108362.5
+    },
+    {
+      "txn_id": "SME001-T0091",
+      "date": "2026-10-07",
+      "type": "debit",
+      "category": "Utilities",
+      "amount": 51930.76
+    },
+    {
+      "txn_id": "SME001-T0086",
+      "date": "2026-10-11",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 137258.46
+    },
+    {
+      "txn_id": "SME001-T0087",
+      "date": "2026-10-13",
+      "type": "credit",
+      "category": "Takeaway Sales",
+      "amount": 134652.23
+    },
+    {
+      "txn_id": "SME001-T0092",
+      "date": "2026-10-13",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 23406.92
+    },
+    {
+      "txn_id": "SME001-T0084",
+      "date": "2026-10-22",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 149795.87
+    },
+    {
+      "txn_id": "SME001-T0082",
+      "date": "2026-10-24",
+      "type": "credit",
+      "category": "Catering Order",
+      "amount": 87987.8
+    },
+    {
+      "txn_id": "SME001-T0088",
+      "date": "2026-10-25",
+      "type": "debit",
+      "category": "Ingredients & Supplies",
+      "amount": 282670.38
+    },
+    {
+      "txn_id": "SME001-T0093",
+      "date": "2026-10-25",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 18755.66
+    },
+    {
+      "txn_id": "SME001-T0085",
+      "date": "2026-10-26",
+      "type": "credit",
+      "category": "Dine-in Sales",
+      "amount": 140098.44
+    },
+    {
+      "txn_id": "SME001-T0094",
+      "date": "2026-10-27",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 21867.32
+    }
+  ],
+  "SME002": [
+    {
+      "txn_id": "SME002-T0008",
+      "date": "2026-05-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 606196.86
+    },
+    {
+      "txn_id": "SME002-T0001",
+      "date": "2026-05-03",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 364124.05
+    },
+    {
+      "txn_id": "SME002-T0009",
+      "date": "2026-05-03",
+      "type": "debit",
+      "category": "Rent & Factory",
+      "amount": 255714.87
+    },
+    {
+      "txn_id": "SME002-T0013",
+      "date": "2026-05-05",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 74155.7
+    },
+    {
+      "txn_id": "SME002-T0004",
+      "date": "2026-05-06",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 409529.66
+    },
+    {
+      "txn_id": "SME002-T0002",
+      "date": "2026-05-12",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 483638.04
+    },
+    {
+      "txn_id": "SME002-T0010",
+      "date": "2026-05-13",
+      "type": "debit",
+      "category": "Utilities & Power",
+      "amount": 238288.42
+    },
+    {
+      "txn_id": "SME002-T0007",
+      "date": "2026-05-18",
+      "type": "debit",
+      "category": "Raw Materials",
+      "amount": 1108677.98
+    },
+    {
+      "txn_id": "SME002-T0003",
+      "date": "2026-05-21",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 318176.29
+    },
+    {
+      "txn_id": "SME002-T0006",
+      "date": "2026-05-22",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 548093.37
+    },
+    {
+      "txn_id": "SME002-T0005",
+      "date": "2026-05-26",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 482572.13
+    },
+    {
+      "txn_id": "SME002-T0011",
+      "date": "2026-05-26",
+      "type": "debit",
+      "category": "Logistics",
+      "amount": 176547.79
+    },
+    {
+      "txn_id": "SME002-T0012",
+      "date": "2026-05-26",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 55833.9
+    },
+    {
+      "txn_id": "SME002-T0019",
+      "date": "2026-06-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 599504.18
+    },
+    {
+      "txn_id": "SME002-T0020",
+      "date": "2026-06-03",
+      "type": "debit",
+      "category": "Rent & Factory",
+      "amount": 254646.92
+    },
+    {
+      "txn_id": "SME002-T0023",
+      "date": "2026-06-05",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 92710.09
+    },
+    {
+      "txn_id": "SME002-T0017",
+      "date": "2026-06-06",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 704886.88
+    },
+    {
+      "txn_id": "SME002-T0024",
+      "date": "2026-06-09",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 66807.18
+    },
+    {
+      "txn_id": "SME002-T0015",
+      "date": "2026-06-12",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 565887.61
+    },
+    {
+      "txn_id": "SME002-T0018",
+      "date": "2026-06-13",
+      "type": "debit",
+      "category": "Raw Materials",
+      "amount": 1282759.07
+    },
+    {
+      "txn_id": "SME002-T0022",
+      "date": "2026-06-17",
+      "type": "debit",
+      "category": "Logistics",
+      "amount": 136484.24
+    },
+    {
+      "txn_id": "SME002-T0016",
+      "date": "2026-06-22",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 795192.33
+    },
+    {
+      "txn_id": "SME002-T0014",
+      "date": "2026-06-25",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 628215.34
+    },
+    {
+      "txn_id": "SME002-T0021",
+      "date": "2026-06-26",
+      "type": "debit",
+      "category": "Utilities & Power",
+      "amount": 218445.61
+    },
+    {
+      "txn_id": "SME002-T0031",
+      "date": "2026-07-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 626850.08
+    },
+    {
+      "txn_id": "SME002-T0030",
+      "date": "2026-07-03",
+      "type": "debit",
+      "category": "Raw Materials",
+      "amount": 1157914.83
+    },
+    {
+      "txn_id": "SME002-T0032",
+      "date": "2026-07-03",
+      "type": "debit",
+      "category": "Rent & Factory",
+      "amount": 255468.8
+    },
+    {
+      "txn_id": "SME002-T0025",
+      "date": "2026-07-05",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 452854.6
+    },
+    {
+      "txn_id": "SME002-T0035",
+      "date": "2026-07-05",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 71933.39
+    },
+    {
+      "txn_id": "SME002-T0036",
+      "date": "2026-07-05",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 91074.89
+    },
+    {
+      "txn_id": "SME002-T0029",
+      "date": "2026-07-09",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 719860.56
+    },
+    {
+      "txn_id": "SME002-T0027",
+      "date": "2026-07-15",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 708198.9
+    },
+    {
+      "txn_id": "SME002-T0028",
+      "date": "2026-07-15",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 507121.64
+    },
+    {
+      "txn_id": "SME002-T0034",
+      "date": "2026-07-15",
+      "type": "debit",
+      "category": "Logistics",
+      "amount": 127342.34
+    },
+    {
+      "txn_id": "SME002-T0026",
+      "date": "2026-07-17",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 401038.19
+    },
+    {
+      "txn_id": "SME002-T0033",
+      "date": "2026-07-17",
+      "type": "debit",
+      "category": "Utilities & Power",
+      "amount": 192018.39
+    },
+    {
+      "txn_id": "SME002-T0042",
+      "date": "2026-08-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 611578.67
+    },
+    {
+      "txn_id": "SME002-T0037",
+      "date": "2026-08-03",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 651496.67
+    },
+    {
+      "txn_id": "SME002-T0043",
+      "date": "2026-08-03",
+      "type": "debit",
+      "category": "Rent & Factory",
+      "amount": 254639.36
+    },
+    {
+      "txn_id": "SME002-T0040",
+      "date": "2026-08-10",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 686958.54
+    },
+    {
+      "txn_id": "SME002-T0038",
+      "date": "2026-08-11",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 694493.72
+    },
+    {
+      "txn_id": "SME002-T0046",
+      "date": "2026-08-13",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 67302.62
+    },
+    {
+      "txn_id": "SME002-T0044",
+      "date": "2026-08-17",
+      "type": "debit",
+      "category": "Utilities & Power",
+      "amount": 194921.52
+    },
+    {
+      "txn_id": "SME002-T0039",
+      "date": "2026-08-21",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 641291.58
+    },
+    {
+      "txn_id": "SME002-T0041",
+      "date": "2026-08-21",
+      "type": "debit",
+      "category": "Raw Materials",
+      "amount": 1285914.31
+    },
+    {
+      "txn_id": "SME002-T0047",
+      "date": "2026-08-25",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 93765.96
+    },
+    {
+      "txn_id": "SME002-T0045",
+      "date": "2026-08-26",
+      "type": "debit",
+      "category": "Logistics",
+      "amount": 154304.73
+    },
+    {
+      "txn_id": "SME002-T0052",
+      "date": "2026-09-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 607540.24
+    },
+    {
+      "txn_id": "SME002-T0053",
+      "date": "2026-09-03",
+      "type": "debit",
+      "category": "Rent & Factory",
+      "amount": 257263.34
+    },
+    {
+      "txn_id": "SME002-T0049",
+      "date": "2026-09-05",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 1248202.12
+    },
+    {
+      "txn_id": "SME002-T0048",
+      "date": "2026-09-09",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 666479.17
+    },
+    {
+      "txn_id": "SME002-T0054",
+      "date": "2026-09-14",
+      "type": "debit",
+      "category": "Utilities & Power",
+      "amount": 215074.1
+    },
+    {
+      "txn_id": "SME002-T0056",
+      "date": "2026-09-18",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 60754.62
+    },
+    {
+      "txn_id": "SME002-T0057",
+      "date": "2026-09-18",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 93514.69
+    },
+    {
+      "txn_id": "SME002-T0050",
+      "date": "2026-09-22",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 741890.3
+    },
+    {
+      "txn_id": "SME002-T0051",
+      "date": "2026-09-25",
+      "type": "debit",
+      "category": "Raw Materials",
+      "amount": 961104.97
+    },
+    {
+      "txn_id": "SME002-T0055",
+      "date": "2026-09-25",
+      "type": "debit",
+      "category": "Logistics",
+      "amount": 176741.73
+    },
+    {
+      "txn_id": "SME002-T0065",
+      "date": "2026-10-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 601317.68
+    },
+    {
+      "txn_id": "SME002-T0068",
+      "date": "2026-10-02",
+      "type": "debit",
+      "category": "Logistics",
+      "amount": 179775.8
+    },
+    {
+      "txn_id": "SME002-T0070",
+      "date": "2026-10-02",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 80470.69
+    },
+    {
+      "txn_id": "SME002-T0066",
+      "date": "2026-10-03",
+      "type": "debit",
+      "category": "Rent & Factory",
+      "amount": 250511.95
+    },
+    {
+      "txn_id": "SME002-T0059",
+      "date": "2026-10-18",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 482052.69
+    },
+    {
+      "txn_id": "SME002-T0060",
+      "date": "2026-10-18",
+      "type": "credit",
+      "category": "Client Invoice Payment",
+      "amount": 373839.13
+    },
+    {
+      "txn_id": "SME002-T0069",
+      "date": "2026-10-20",
+      "type": "debit",
+      "category": "Equipment & Maintenance",
+      "amount": 115221.49
+    },
+    {
+      "txn_id": "SME002-T0058",
+      "date": "2026-10-21",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 548954.32
+    },
+    {
+      "txn_id": "SME002-T0061",
+      "date": "2026-10-23",
+      "type": "credit",
+      "category": "Bulk Order",
+      "amount": 474492.8
+    },
+    {
+      "txn_id": "SME002-T0062",
+      "date": "2026-10-24",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 280859.67
+    },
+    {
+      "txn_id": "SME002-T0063",
+      "date": "2026-10-24",
+      "type": "credit",
+      "category": "Export Order",
+      "amount": 288296.73
+    },
+    {
+      "txn_id": "SME002-T0064",
+      "date": "2026-10-24",
+      "type": "debit",
+      "category": "Raw Materials",
+      "amount": 972437.64
+    },
+    {
+      "txn_id": "SME002-T0067",
+      "date": "2026-10-26",
+      "type": "debit",
+      "category": "Utilities & Power",
+      "amount": 187286.86
+    }
+  ],
+  "SME003": [
+    {
+      "txn_id": "SME003-T0002",
+      "date": "2026-05-01",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 106562.78
+    },
+    {
+      "txn_id": "SME003-T0011",
+      "date": "2026-05-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 419276.48
+    },
+    {
+      "txn_id": "SME003-T0009",
+      "date": "2026-05-03",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 106792.09
+    },
+    {
+      "txn_id": "SME003-T0013",
+      "date": "2026-05-03",
+      "type": "debit",
+      "category": "Rent / Co-working",
+      "amount": 94024.58
+    },
+    {
+      "txn_id": "SME003-T0005",
+      "date": "2026-05-04",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 135012.53
+    },
+    {
+      "txn_id": "SME003-T0001",
+      "date": "2026-05-05",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 132612.98
+    },
+    {
+      "txn_id": "SME003-T0004",
+      "date": "2026-05-07",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 73048.39
+    },
+    {
+      "txn_id": "SME003-T0008",
+      "date": "2026-05-08",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 111797.57
+    },
+    {
+      "txn_id": "SME003-T0006",
+      "date": "2026-05-11",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 69628.62
+    },
+    {
+      "txn_id": "SME003-T0015",
+      "date": "2026-05-17",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 48915.23
+    },
+    {
+      "txn_id": "SME003-T0010",
+      "date": "2026-05-20",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 151994.07
+    },
+    {
+      "txn_id": "SME003-T0012",
+      "date": "2026-05-20",
+      "type": "debit",
+      "category": "Software & Tools",
+      "amount": 99239.84
+    },
+    {
+      "txn_id": "SME003-T0007",
+      "date": "2026-05-22",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 89560.45
+    },
+    {
+      "txn_id": "SME003-T0003",
+      "date": "2026-05-24",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 123934.63
+    },
+    {
+      "txn_id": "SME003-T0014",
+      "date": "2026-05-24",
+      "type": "debit",
+      "category": "Contractors",
+      "amount": 61437.01
+    },
+    {
+      "txn_id": "SME003-T0016",
+      "date": "2026-05-26",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 48795.89
+    },
+    {
+      "txn_id": "SME003-T0020",
+      "date": "2026-06-01",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 118631.34
+    },
+    {
+      "txn_id": "SME003-T0029",
+      "date": "2026-06-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 392284.31
+    },
+    {
+      "txn_id": "SME003-T0022",
+      "date": "2026-06-02",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 107669.69
+    },
+    {
+      "txn_id": "SME003-T0033",
+      "date": "2026-06-02",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 41465.7
+    },
+    {
+      "txn_id": "SME003-T0031",
+      "date": "2026-06-03",
+      "type": "debit",
+      "category": "Rent / Co-working",
+      "amount": 88342.27
+    },
+    {
+      "txn_id": "SME003-T0017",
+      "date": "2026-06-04",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 114419.94
+    },
+    {
+      "txn_id": "SME003-T0026",
+      "date": "2026-06-04",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 113309.14
+    },
+    {
+      "txn_id": "SME003-T0027",
+      "date": "2026-06-04",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 111246.99
+    },
+    {
+      "txn_id": "SME003-T0030",
+      "date": "2026-06-05",
+      "type": "debit",
+      "category": "Software & Tools",
+      "amount": 111134.21
+    },
+    {
+      "txn_id": "SME003-T0018",
+      "date": "2026-06-06",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 76474.87
+    },
+    {
+      "txn_id": "SME003-T0021",
+      "date": "2026-06-08",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 79384.63
+    },
+    {
+      "txn_id": "SME003-T0025",
+      "date": "2026-06-08",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 81397.24
+    },
+    {
+      "txn_id": "SME003-T0034",
+      "date": "2026-06-12",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 31381.31
+    },
+    {
+      "txn_id": "SME003-T0024",
+      "date": "2026-06-14",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 81776.49
+    },
+    {
+      "txn_id": "SME003-T0023",
+      "date": "2026-06-20",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 61390.2
+    },
+    {
+      "txn_id": "SME003-T0028",
+      "date": "2026-06-20",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 81201.17
+    },
+    {
+      "txn_id": "SME003-T0032",
+      "date": "2026-06-20",
+      "type": "debit",
+      "category": "Contractors",
+      "amount": 92270.24
+    },
+    {
+      "txn_id": "SME003-T0019",
+      "date": "2026-06-22",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 79775.4
+    },
+    {
+      "txn_id": "SME003-T0042",
+      "date": "2026-07-01",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 124231.52
+    },
+    {
+      "txn_id": "SME003-T0045",
+      "date": "2026-07-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 411002.86
+    },
+    {
+      "txn_id": "SME003-T0047",
+      "date": "2026-07-03",
+      "type": "debit",
+      "category": "Rent / Co-working",
+      "amount": 94604.89
+    },
+    {
+      "txn_id": "SME003-T0036",
+      "date": "2026-07-04",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 89332.76
+    },
+    {
+      "txn_id": "SME003-T0039",
+      "date": "2026-07-05",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 85021.83
+    },
+    {
+      "txn_id": "SME003-T0043",
+      "date": "2026-07-07",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 140778.14
+    },
+    {
+      "txn_id": "SME003-T0041",
+      "date": "2026-07-08",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 177614.11
+    },
+    {
+      "txn_id": "SME003-T0046",
+      "date": "2026-07-09",
+      "type": "debit",
+      "category": "Software & Tools",
+      "amount": 118298.19
+    },
+    {
+      "txn_id": "SME003-T0044",
+      "date": "2026-07-13",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 80569.74
+    },
+    {
+      "txn_id": "SME003-T0049",
+      "date": "2026-07-14",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 62318.54
+    },
+    {
+      "txn_id": "SME003-T0050",
+      "date": "2026-07-16",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 36611.3
+    },
+    {
+      "txn_id": "SME003-T0038",
+      "date": "2026-07-21",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 80936.63
+    },
+    {
+      "txn_id": "SME003-T0048",
+      "date": "2026-07-21",
+      "type": "debit",
+      "category": "Contractors",
+      "amount": 53073.14
+    },
+    {
+      "txn_id": "SME003-T0037",
+      "date": "2026-07-26",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 98177.39
+    },
+    {
+      "txn_id": "SME003-T0040",
+      "date": "2026-07-26",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 118957.79
+    },
+    {
+      "txn_id": "SME003-T0035",
+      "date": "2026-07-27",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 151499.61
+    },
+    {
+      "txn_id": "SME003-T0054",
+      "date": "2026-08-01",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 139067.97
+    },
+    {
+      "txn_id": "SME003-T0060",
+      "date": "2026-08-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 380356.6
+    },
+    {
+      "txn_id": "SME003-T0058",
+      "date": "2026-08-02",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 98678.4
+    },
+    {
+      "txn_id": "SME003-T0063",
+      "date": "2026-08-02",
+      "type": "debit",
+      "category": "Contractors",
+      "amount": 63105.41
+    },
+    {
+      "txn_id": "SME003-T0062",
+      "date": "2026-08-03",
+      "type": "debit",
+      "category": "Rent / Co-working",
+      "amount": 90429.25
+    },
+    {
+      "txn_id": "SME003-T0064",
+      "date": "2026-08-06",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 66250.48
+    },
+    {
+      "txn_id": "SME003-T0052",
+      "date": "2026-08-07",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 79276.17
+    },
+    {
+      "txn_id": "SME003-T0061",
+      "date": "2026-08-11",
+      "type": "debit",
+      "category": "Software & Tools",
+      "amount": 112543.57
+    },
+    {
+      "txn_id": "SME003-T0065",
+      "date": "2026-08-14",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 29621.09
+    },
+    {
+      "txn_id": "SME003-T0057",
+      "date": "2026-08-17",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 82963.31
+    },
+    {
+      "txn_id": "SME003-T0059",
+      "date": "2026-08-17",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 165113.23
+    },
+    {
+      "txn_id": "SME003-T0053",
+      "date": "2026-08-18",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 136047.54
+    },
+    {
+      "txn_id": "SME003-T0051",
+      "date": "2026-08-20",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 79340.23
+    },
+    {
+      "txn_id": "SME003-T0055",
+      "date": "2026-08-26",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 144198.62
+    },
+    {
+      "txn_id": "SME003-T0056",
+      "date": "2026-08-26",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 113692.02
+    },
+    {
+      "txn_id": "SME003-T0075",
+      "date": "2026-09-01",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 157118.38
+    },
+    {
+      "txn_id": "SME003-T0076",
+      "date": "2026-09-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 411149.74
+    },
+    {
+      "txn_id": "SME003-T0071",
+      "date": "2026-09-03",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 121858.84
+    },
+    {
+      "txn_id": "SME003-T0073",
+      "date": "2026-09-03",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 158700.73
+    },
+    {
+      "txn_id": "SME003-T0078",
+      "date": "2026-09-03",
+      "type": "debit",
+      "category": "Rent / Co-working",
+      "amount": 96323.15
+    },
+    {
+      "txn_id": "SME003-T0079",
+      "date": "2026-09-03",
+      "type": "debit",
+      "category": "Contractors",
+      "amount": 101115.94
+    },
+    {
+      "txn_id": "SME003-T0080",
+      "date": "2026-09-07",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 34876.72
+    },
+    {
+      "txn_id": "SME003-T0067",
+      "date": "2026-09-10",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 79459.58
+    },
+    {
+      "txn_id": "SME003-T0069",
+      "date": "2026-09-16",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 147068.43
+    },
+    {
+      "txn_id": "SME003-T0070",
+      "date": "2026-09-18",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 148154.95
+    },
+    {
+      "txn_id": "SME003-T0074",
+      "date": "2026-09-18",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 125207.59
+    },
+    {
+      "txn_id": "SME003-T0077",
+      "date": "2026-09-19",
+      "type": "debit",
+      "category": "Software & Tools",
+      "amount": 118521.99
+    },
+    {
+      "txn_id": "SME003-T0066",
+      "date": "2026-09-20",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 108181.88
+    },
+    {
+      "txn_id": "SME003-T0081",
+      "date": "2026-09-22",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 44888.63
+    },
+    {
+      "txn_id": "SME003-T0072",
+      "date": "2026-09-24",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 101888.86
+    },
+    {
+      "txn_id": "SME003-T0068",
+      "date": "2026-09-25",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 79567.02
+    },
+    {
+      "txn_id": "SME003-T0092",
+      "date": "2026-10-01",
+      "type": "debit",
+      "category": "Staff Salaries",
+      "amount": 392948.42
+    },
+    {
+      "txn_id": "SME003-T0094",
+      "date": "2026-10-03",
+      "type": "debit",
+      "category": "Rent / Co-working",
+      "amount": 92962.33
+    },
+    {
+      "txn_id": "SME003-T0088",
+      "date": "2026-10-07",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 72762.58
+    },
+    {
+      "txn_id": "SME003-T0096",
+      "date": "2026-10-07",
+      "type": "debit",
+      "category": "Marketing",
+      "amount": 75152.27
+    },
+    {
+      "txn_id": "SME003-T0083",
+      "date": "2026-10-12",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 137857.56
+    },
+    {
+      "txn_id": "SME003-T0082",
+      "date": "2026-10-13",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 101214.45
+    },
+    {
+      "txn_id": "SME003-T0086",
+      "date": "2026-10-13",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 157180.98
+    },
+    {
+      "txn_id": "SME003-T0097",
+      "date": "2026-10-13",
+      "type": "debit",
+      "category": "Misc / Admin",
+      "amount": 35686.3
+    },
+    {
+      "txn_id": "SME003-T0095",
+      "date": "2026-10-14",
+      "type": "debit",
+      "category": "Contractors",
+      "amount": 49697.52
+    },
+    {
+      "txn_id": "SME003-T0084",
+      "date": "2026-10-18",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 80652.09
+    },
+    {
+      "txn_id": "SME003-T0091",
+      "date": "2026-10-20",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 124073.84
+    },
+    {
+      "txn_id": "SME003-T0089",
+      "date": "2026-10-25",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 129562.01
+    },
+    {
+      "txn_id": "SME003-T0093",
+      "date": "2026-10-25",
+      "type": "debit",
+      "category": "Software & Tools",
+      "amount": 110323.65
+    },
+    {
+      "txn_id": "SME003-T0085",
+      "date": "2026-10-26",
+      "type": "credit",
+      "category": "Project Milestone",
+      "amount": 132155.61
+    },
+    {
+      "txn_id": "SME003-T0087",
+      "date": "2026-10-26",
+      "type": "credit",
+      "category": "One-off Project",
+      "amount": 163051.7
+    },
+    {
+      "txn_id": "SME003-T0090",
+      "date": "2026-10-26",
+      "type": "credit",
+      "category": "Retainer Payment",
+      "amount": 160203.58
+    }
+  ]
+}

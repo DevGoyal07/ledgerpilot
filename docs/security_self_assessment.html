@@ -1,0 +1,135 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="_docstyle.css"></head><body>
+
+<div class="cover">
+<p class="subtitle">LedgerPilot</p>
+<h1>Security Self-Assessment Report</h1>
+<p class="meta"><b>2026 FinTechathon · WeBank FinTech College Students Challenge — International Track</b><br>
+Topic E — SME Finance Copilot &nbsp;·&nbsp; <span class="tag">v1.0</span> &nbsp;·&nbsp; October 2026</p>
+</div>
+
+<p>This report documents LedgerPilot's permission-tier implementation and a
+structured known-risk list with mitigations and residual-risk ratings. It is a
+companion to the <i>Technical Documentation</i>.</p>
+
+<div class="callout"><b>Security posture in one line:</b> LedgerPilot can analyse
+freely but cannot act without a human saying yes — and every decision it makes
+is logged.</div>
+
+<h2>1. Threat model</h2>
+<p>As a finance agent, LedgerPilot touches sensitive business data and can, in
+production, trigger money-adjacent actions (reminders, follow-ups, and — on the
+roadmap — payments). The assets, actors, and primary threats we design against:</p>
+<table>
+<tr><th>Assets</th><th>Threats we design against</th></tr>
+<tr><td>Business financial data; the ability to take actions; the integrity of the audit trail.</td>
+<td>(a) the agent taking an unintended or unauthorised action; (b) prompt-injection or a bad plan escalating privilege; (c) unexplainable or non-compliant financial recommendations; (d) silent failure with no traceability; (e) data over-exposure.</td></tr>
+</table>
+
+<h2>2. Permission-tier implementation</h2>
+<p>Access is governed by three ascending tiers. Every tool statically declares
+the minimum tier it requires via a <code>REQUIRED_TIER</code> attribute; the
+agent runs under a configurable <code>max_tier</code> ceiling.</p>
+
+<table>
+<tr><th>Tier</th><th>Name</th><th>Side effects</th><th>Tools</th><th>Enforcement rule</th></tr>
+<tr><td><b>T0</b></td><td>Read-only analysis</td><td>None</td><td><code>analyze_cashflow</code>, <code>financial_analysis</code></td><td>Always permitted.</td></tr>
+<tr><td><b>T1</b></td><td>Recommend / draft</td><td>None</td><td><code>match_financing</code></td><td>Permitted up to the ceiling.</td></tr>
+<tr><td><b>T2</b></td><td>State-changing action</td><td>Yes</td><td><code>schedule_action</code></td><td>Permitted up to the ceiling <b>and</b> requires an explicit, matching confirmation token — every time.</td></tr>
+</table>
+
+<h3>2.1 The enforcement point</h3>
+<p>All gating flows through a single <code>PermissionContext.check()</code> call,
+so there is one place to audit and no tool can bypass it:</p>
+<pre>def check(self, required, action_summary=""):
+    if required &gt; self.max_tier:
+        raise PermissionError_(...)          # ceiling exceeded -&gt; hard denial
+    if required == Tier.T2_ACT:
+        if self.confirmed_action != action_summary:
+            raise ConfirmationRequired(...)   # action not yet confirmed</pre>
+<p>Two independent conditions must both hold for an action to run: the ceiling
+must allow it, <i>and</i> the user must have confirmed the <b>exact</b> pending
+action (matched by its summary string). The agent never sets its own
+confirmation token — only a user turn does, through the agent loop.</p>
+
+<h3>2.2 Operating modes</h3>
+<ul>
+<li><b>Guarded autonomy (default live mode)</b> — ceiling T2. The agent may take
+actions, but each one stops for confirmation. This is the shipped default.</li>
+<li><b>Read-only lockdown</b> — ceiling T0. The agent can analyse but cannot
+recommend or act; even a user "yes" cannot force an action through. Used for
+untrusted contexts or compliance-restricted deployments.</li>
+</ul>
+
+<h3>2.3 Verification</h3>
+<p>The permission model is covered by dedicated tests and demonstrated live in
+<code>run_scenario.py</code>. Three outcomes are proven:</p>
+<table>
+<tr><th>Scenario</th><th>Expected</th><th>Result</th></tr>
+<tr><td>Action requested, not yet confirmed</td><td>Gated (<code>ConfirmationRequired</code>)</td><td class="risk-low">PASS — confirmation prompt shown</td></tr>
+<tr><td>Same action, user confirms</td><td>Executes, written to actions ledger</td><td class="risk-low">PASS</td></tr>
+<tr><td>Read-only agent, user says "yes"</td><td>Denied (<code>PermissionError</code>)</td><td class="risk-low">PASS — ceiling blocks it</td></tr>
+</table>
+<p>The automated suite additionally asserts: read always allowed; recommend
+blocked under a read ceiling; action blocked without confirmation; action runs
+only with a <i>matching</i> confirmation; and the ceiling is enforced even when a
+(stale) confirmation token is present.</p>
+
+<h2>3. Auditability</h2>
+<p>Every turn produces an append-only JSONL trail via <code>AuditLogger</code>.
+Logged event types: <code>user_message</code>, <code>plan</code>,
+<code>tool_call</code> (with the required tier), <code>tool_result</code>,
+<code>confirmation_required</code>, <code>permission_denied</code>,
+<code>tool_error</code>, and <code>assistant_reply</code>. Authorised
+state-changing actions are additionally recorded in a separate actions ledger.
+This gives a complete, replayable record of what the agent saw, decided, and did
+— the basis for incident review and compliance evidence.</p>
+
+<h2>4. Known-risk list</h2>
+<p>Risks are rated by residual severity <i>after</i> the stated mitigation.</p>
+
+<table>
+<tr><th>#</th><th>Risk</th><th>Mitigation in place</th><th>Residual</th></tr>
+<tr><td>R1</td><td>Agent takes an unintended state-changing action.</td>
+<td>T2 confirmation-always; the agent cannot self-approve; exact-match on the action summary prevents confirming a different action than the one shown.</td><td class="risk-low">Low</td></tr>
+<tr><td>R2</td><td>Prompt injection / adversarial input steers the plan toward an action.</td>
+<td>Injection can at most <i>propose</i> a T2 action; execution still needs a human confirmation and is bounded by the ceiling. Read-only lockdown removes the surface entirely for untrusted contexts.</td><td class="risk-med">Medium</td></tr>
+<tr><td>R3</td><td>Unexplainable or non-compliant financial recommendation.</td>
+<td>All recommendations are rule-based and return their reasons; the health score exposes its components and weights; every financing reply carries a "not a credit offer / not regulated advice" disclaimer.</td><td class="risk-low">Low</td></tr>
+<tr><td>R4</td><td>Silent failure or untraceable behaviour.</td>
+<td>Full audit log of every decision and error; deterministic offline mode makes runs reproducible for review.</td><td class="risk-low">Low</td></tr>
+<tr><td>R5</td><td>Over-exposure of sensitive financial data.</td>
+<td>Datastore is read-only and scoped to the selected business per request; no cross-business data is mixed; no data leaves the process in offline mode.</td><td class="risk-med">Medium</td></tr>
+<tr><td>R6</td><td>Hallucinated numbers from the LLM backend.</td>
+<td>All figures originate from deterministic tools, not the model; the narrator is instructed to never invent numbers beyond tool results. Offline mode is fully deterministic.</td><td class="risk-low">Low</td></tr>
+<tr><td>R7</td><td>Secret/key leakage (live mode).</td>
+<td>Keys are read only from environment / <code>.env</code> (git-ignored); never logged; never embedded in code or sent to any endpoint other than the configured LLM provider.</td><td class="risk-low">Low</td></tr>
+<tr><td>R8</td><td>Stale or incorrect financial advice from outdated data.</td>
+<td>Analyses are timestamped and bounded to the six-month window; production roadmap uses live accounting/bank connectors with freshness checks.</td><td class="risk-med">Medium</td></tr>
+</table>
+
+<h2>5. Compliance stance</h2>
+<ul>
+<li><b>Not regulated financial advice.</b> LedgerPilot provides explainable
+guidance and analysis, not a credit decision or investment advice. Every
+financing response states this explicitly.</li>
+<li><b>Human-in-the-loop for actions.</b> No money-adjacent action occurs without
+an explicit, logged user confirmation.</li>
+<li><b>Data minimisation.</b> Only the selected business's data is read for a
+given request; nothing is shared externally in offline mode.</li>
+<li><b>Transparency.</b> Scores and recommendations ship with their underlying
+reasons so an owner (or an auditor) can see why.</li>
+</ul>
+
+<h2>6. Residual-risk summary</h2>
+<p>After mitigations, no risk is rated high. The three medium residual risks
+(R2 prompt injection, R5 data exposure, R8 data freshness) are the priorities
+for the next iteration: an input-sanitisation / policy layer in front of the
+planner, per-field data-access scoping, and live connectors with freshness
+guarantees.</p>
+
+<hr>
+<p class="small">All data in this project is simulated. No real account, customer,
+or money is accessed. &nbsp;·&nbsp; LedgerPilot — FinTechathon 2026, International Track.</p>
+
+</body></html>
