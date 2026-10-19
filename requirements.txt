@@ -1,0 +1,3 @@
+flask>=3.0
+openai>=1.0        # only needed for the live-LLM backend; offline mode needs nothing
+pytest>=7.0        # dev / testing only
